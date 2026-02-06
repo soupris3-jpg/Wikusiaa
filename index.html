@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Walentynka</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    button {
+      font-size: 18px;
+      padding: 12px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .yes {
+      background: #2ecc71;
+      color: #fff;
+    }
+    .yes:hover {
+      background: #27ae60;
+      transform: scale(1.05);
+    }
+    .no {
+      background: #e74c3c;
+      color: #fff;
+    }
+    .no:hover {
+      background: #c0392b;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Czy zostaniesz moją walentynką? 💖</h1>
+    <button class="yes" id="yesBtn">Tak</button>
+    <button class="no" id="noBtn">Nie</button>
+  </div>
+  <script>
+    const noBtn = document.getElementById('noBtn');
+
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    });
+  
+    const yesBtn = document.getElementById('yesBtn');
+
+    yesBtn.addEventListener('click', () => {
+      document.body.innerHTML = `
+        <div style="
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          height:100vh;
+          background: linear-gradient(135deg, #ff758c, #ff7eb3);
+          color:white;
+          font-size: clamp(40px, 8vw, 120px);
+          font-family: Arial, sans-serif;
+          text-align:center;
+        ">
+          ❤️ Kocham Cię ❤️
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
+
